@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Bestie ♡</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+body{
+  color:#fff; overflow-x:hidden;
+  background:radial-gradient(circle at 50% 10%,#5d274f 0,#24152f 38%,#0d0a18 100%);
+}
+.bg{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(55px);opacity:.35}
+.o1{width:240px;height:240px;background:#ff5c9a;top:-80px;left:-80px}
+.o2{width:300px;height:300px;background:#8d5cff;right:-120px;top:30%}
+.o3{width:220px;height:220px;background:#ffb45c;left:15%;bottom:-100px}
+main{position:relative;z-index:2;max-width:900px;margin:auto;padding:28px 18px 70px}
+.hero{text-align:center;min-height:86vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.badge{display:inline-block;padding:8px 15px;border:1px solid #ffffff35;border-radius:999px;background:#ffffff12;backdrop-filter:blur(10px);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}
+h1{font-size:clamp(3rem,13vw,7rem);line-height:.9;margin:22px 0 12px;background:linear-gradient(135deg,#fff,#ffd1e5,#ff83b7);-webkit-background-clip:text;background-clip:text;color:transparent}
+.subtitle{font-size:clamp(1rem,4vw,1.3rem);color:#f8dce8;max-width:620px;line-height:1.6}
+.btn{
+ border:0;border-radius:999px;padding:14px 23px;margin-top:18px;font-weight:800;
+ color:#2b1020;background:#ffd1e5;cursor:pointer;box-shadow:0 12px 35px #ff5c9a35;
+ transition:.2s transform,.2s box-shadow;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 45px #ff5c9a55}
+.card{
+ margin:25px 0;padding:30px 24px;border:1px solid #ffffff20;border-radius:28px;
+ background:#ffffff0c;backdrop-filter:blur(14px);box-shadow:0 18px 60px #0005
+}
+.card h2{margin-top:0;font-size:1.8rem}
+.card p{color:#eadbe4;line-height:1.8;font-size:1.02rem}
+.heart{font-size:2rem;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{transform:scale(1.18)}}
+.reveal{display:none;margin-top:20px;padding:20px;border-radius:20px;background:#ff7eae18;border:1px solid #ffb0cc35;color:#ffe6ef;line-height:1.7}
+.reveal.show{display:block;animation:pop .4s ease}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+footer{text-align:center;color:#a997a5;font-size:.85rem;margin-top:45px}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:10}
+.conf{position:absolute;width:9px;height:14px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+</style>
+</head>
+<body>
+<div class="bg"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
+<div id="confetti"></div>
+<main>
+<section class="hero">
+  <div class="badge">a little birthday surprise ♡</div>
+  <div class="heart">♡</div>
+  <h1>Happy Birthday!</h1>
+  <p class="subtitle">To one of the most special people in my life. Today is your day, so please enjoy every little moment of it.</p>
+  <button class="btn" onclick="celebrate()">Open your surprise ✨</button>
+</section>
+
+<section class="card">
+  <h2>For my best friend 💗</h2>
+  <p>
+    I hope this new chapter brings you countless reasons to smile, people who truly appreciate you,
+    and memories that you'll want to keep forever. Thank you for being someone I can laugh with,
+    talk to, and make random memories with.
+  </p>
+  <p>
+    You deserve a birthday that feels as wonderful as you are. Keep being yourself, keep chasing
+    the things that make you happy, and never forget how loved and appreciated you are.
+  </p>
+  <p><strong>Happy birthday, bestie. Here's to another beautiful year of you. ♡</strong></p>
+</section>
+
+<section class="card">
+  <h2>One tiny message 🌷</h2>
+  <p>Some friendships are ordinary. Some become memories you carry for a very long time.</p>
+  <button class="btn" onclick="reveal()">Tap for one more message</button>
+  <div id="message" class="reveal">
+    No matter how much time passes, I hope we always have something stupid to laugh about.
+    Stay happy, stay amazing, and have the birthday you deserve. <br><br>
+    <strong>Sempiternally ♡</strong>
+  </div>
+</section>
+
+<footer>Made with ♡ for a very special birthday</footer>
+</main>
+<script>
+function celebrate(){
+  for(let i=0;i<90;i++){
+    const c=document.createElement('span');
+    c.className='conf';
+    c.style.left=Math.random()*100+'vw';
+    c.style.top='-20px';
+    c.style.background=['#ffd1e5','#ff83b7','#fff','#d6b7ff','#ffc36b'][Math.floor(Math.random()*5)];
+    c.style.animationDuration=(2.2+Math.random()*2.8)+'s';
+    c.style.animationDelay=(Math.random()*.7)+'s';
+    document.getElementById('confetti').appendChild(c);
+    setTimeout(()=>c.remove(),6000);
+  }
+}
+function reveal(){
+  document.getElementById('message').classList.toggle('show');
+  celebrate();
+}
+</script>
+</body>
+</html>
